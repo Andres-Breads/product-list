@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet, ScrollView, RefreshControl, View } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import Product from './Product';
 import { fetchProducts } from '../api/Api';
 import { ProductType } from '../types';
 import { MainStackParamList } from '../types/MainStackParamLIst';
-import ProductListItem from './ProductListItem';
+import ProductListItem from '../components/ProductListItem';
 
 type ProductListProps = {
   navigation: StackNavigationProp<MainStackParamList>;
@@ -53,13 +52,12 @@ const ProductList: React.FC<ProductListProps> = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <ScrollView refreshControl={<RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />}>
-
+        <FlatList
+          data={products}
+          renderItem={({ item }) => <ProductListItem product={item} onPress={() => handleProductPress(item)} />}
+          keyExtractor={(item) => item.id}
+        />
       </ScrollView>
-      <FlatList
-        data={products}
-        renderItem={({ item }) => <ProductListItem product={item} onPress={() => handleProductPress(item)} />}
-        keyExtractor={(item) => item.id}
-      />
     </View>
   );
 };

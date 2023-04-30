@@ -1,6 +1,6 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import ProductList from "../components/ProductList";
-import ProductDetail from "../components/ProductDetail";
+import ProductList from "../screens/ProductList";
+import ProductDetail from "../screens/ProductDetail";
 import { MainStackParamList } from "../types/MainStackParamLIst";
 
 const MainStack = createStackNavigator<MainStackParamList>();
