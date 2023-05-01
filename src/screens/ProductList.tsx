@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF",
     borderRadius: 10,
     paddingHorizontal: 10,
-    paddingVertical: 20,
+    // paddingVertical: 20,
   },
   message: {
     color: "#9B9898",
