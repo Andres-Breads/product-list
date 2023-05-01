@@ -24,10 +24,13 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ product, onPress }) =
       </CustomText>
     </View>
     <View style={styles.points}>
-      <CustomText style={styles.pointsText}>
-        {product.is_redemption ? '-' : '+'}{product.points}
+      <CustomText style={[styles.pointsText, {color: product.is_redemption ? "#FF0000" : "#00B833"}]}>
+        {product.is_redemption ? '-' : '+'}
       </CustomText>
-      <Icon name='chevron-right' size={18} color='#666' style={styles.arrow} />
+      <CustomText style={styles.pointsText}>
+        {product.points}
+      </CustomText>
+      <Icon name='chevron-right' size={18} color='#070707' style={styles.arrow} />
     </View>
   </TouchableOpacity>
 )
@@ -44,12 +47,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   details: {
+    alignSelf: 'center',
     flex: 4,
   },
   product: {
     fontSize: 14,
     fontWeight: 'bold',
     marginBottom: 7,
+  },
+  createdAt: {
+    fontSize: 12,
   },
   points: {
     alignSelf: 'center',
@@ -58,18 +65,10 @@ const styles = StyleSheet.create({
   },
   pointsText: {
     fontSize: 16,
-    color: '#666',
-  },
-  arrowContainer: {
-    
+    fontWeight: 'bold',
   },
   arrow: {
-    alignSelf: 'center',
     marginLeft: 'auto',
-  },
-  createdAt: {
-    fontSize: 14,
-    color: '#666',
   },
 });
 
