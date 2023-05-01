@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, StyleSheet, ScrollView, RefreshControl, View, TouchableOpacity } from 'react-native';
+import { FlatList, StyleSheet, View, TouchableOpacity } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { fetchProducts } from '../api/Api';
@@ -88,14 +88,14 @@ const ProductList: React.FC<ProductListProps> = ({ navigation }) => {
       <Welcome name="Ruben Rodriguez" />
       <Points total={totalPoints} />
       <CustomText style={styles.message}>TUS MOVIMIENTOS</CustomText>
-      <ScrollView refreshControl={<RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />}>
-        <FlatList
-          data={products}
-          style={styles.itemsContainer}
-          renderItem={({ item }) => <ProductListItem product={item} onPress={() => handleProductPress(item)} />}
-          keyExtractor={(item) => item.id}
-        />
-      </ScrollView>
+      <FlatList
+        data={products}
+        style={styles.itemsContainer}
+        renderItem={({ item }) => <ProductListItem product={item} onPress={() => handleProductPress(item)} />}
+        keyExtractor={(item) => item.id}
+        refreshing={refreshing}
+        onRefresh={handleRefresh}
+      />
       <View style={styles.buttons}>
         {!isFiltering ?
           (
