@@ -6,7 +6,7 @@ import { MainStackParamList } from "../types/MainStackParamLIst";
 const MainStack = createStackNavigator<MainStackParamList>();
 
 const MainRouter = () => (
-  <MainStack.Navigator initialRouteName="ProductList">
+  <MainStack.Navigator initialRouteName="ProductList" screenOptions={{headerShown: false}}>
     <MainStack.Screen name="ProductList" component={ProductList} />
     <MainStack.Screen name="ProductDetail" component={ProductDetail} />
   </MainStack.Navigator>
