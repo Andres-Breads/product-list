@@ -1,11 +1,11 @@
 import 'react-native';
 import React from 'react';
-import ProductDetail from '../ProductDetail';
+import ProductDetail from '../../src/screens/ProductDetail';
 import renderer from 'react-test-renderer';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { MainStackParamList } from '../../types/MainStackParamLIst';
-import { ProductType } from '../../types';
+import { MainStackParamList } from '../../src/types/MainStackParamLIst';
+import { ProductType } from '../../src/types';
 
 type MockNavigationProp = StackNavigationProp<MainStackParamList, 'ProductDetail'>;
 
